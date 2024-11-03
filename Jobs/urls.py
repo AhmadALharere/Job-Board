@@ -7,3 +7,5 @@ urlpatterns = [
     
     path('<int:id>',views.show_job_details),
 ]
+
+
