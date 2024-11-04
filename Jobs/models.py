@@ -5,6 +5,12 @@ job_types = (
     ("Part Time","Part Time")
 )
 
+def pickImage(instance,filename):
+    fname , extention = filename.split('.')
+    return "Jobs/%s.%s"%(instance.id,extention)
+    
+
+
 # Create your models here.
 class Jobs(models.Model):
     title = models.CharField(default=("New Job!"), max_length=60)
@@ -14,13 +20,18 @@ class Jobs(models.Model):
     vacancy = models.IntegerField(default=("1"))
     salary = models.IntegerField(default=("0"))
     published_on = models.DateTimeField(auto_now=True)
-    #category
+    category = models.ForeignKey('Category',on_delete=models.CASCADE)
     qualification = models.IntegerField(default=("0"))
     Date_Line = models.DateTimeField()
+    image = models.ImageField(upload_to=pickImage)
     
     def __str__(self):
         return self.title
     
 
         
-    
+class Category(models.Model):
+    title = models.CharField(default='',max_length=50)
+        
+    def __str__(self):
+        return self.title
