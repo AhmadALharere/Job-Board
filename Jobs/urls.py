@@ -7,7 +7,7 @@ app_name = 'Jobs'
 urlpatterns = [
     path('',views.Show_job),
     
-    path('<int:id>',views.show_job_details,name='jobDetails'),
+    path('<str:slug>',views.show_job_details,name='jobDetails'),
 ]
 
 
