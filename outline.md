@@ -9,6 +9,7 @@ Jobs:
     -category
     -qualification
     -Date Line
+    -owner
 
     -apply job
     -post job
