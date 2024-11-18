@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'contact',
     'home',
     "bootstrap4",
+    'cities',
     
 ]
 
@@ -139,3 +140,4 @@ MEDIA_ROOT =  BASE_DIR / "madia"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
