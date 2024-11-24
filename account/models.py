@@ -17,7 +17,7 @@ class profile(models.Model):
     image = models.ImageField(upload_to=imgprofileSave)
     
     def __str__(self):
-        return self.user
+        return self.user.username
     
 @receiver(post_save, sender=User)
 def _post_save_receiver(sender,instance,created, **kwargs):
