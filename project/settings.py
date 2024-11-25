@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'contact',
     'home',
     "bootstrap4",
+    'django_filters',
     
 ]
 

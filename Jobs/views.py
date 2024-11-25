@@ -4,14 +4,20 @@ from django.core.paginator import Paginator
 from .form import applyform,addJob
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from .filters import jobFelter
 # Create your views here.
 
 def Show_job(request):
     list_of_jobs = Jobs.objects.all()
-    paginator = Paginator(list_of_jobs,1)
+    
+    felteringJob = jobFelter(request.GET,queryset=list_of_jobs)
+    list_of_jobs = felteringJob.qs
+    
+    
+    paginator = Paginator(list_of_jobs,2)
     pageNumber = request.GET.get('page')
     pag_obj = paginator.get_page(pageNumber)
-    return render(request,'Jobs/show Jobs.html',{'Job':pag_obj})
+    return render(request,'Jobs/show Jobs.html',{'Job':pag_obj,'jobfelter':felteringJob})
 
 def show_job_details(request, slug):
     jobDetail = Jobs.objects.get(slug=slug)
